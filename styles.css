@@ -1,0 +1,18 @@
+#hello-world {
+  border: 1px solid #000;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#hello {
+  border: 1px solid #000;
+  padding: 1rem;
+  width: 300px;
+}
+
+#world {
+  border: 1px solid #000;
+  padding: 1rem;
+  width: 300px;
+}
