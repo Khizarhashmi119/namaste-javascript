@@ -265,37 +265,43 @@
 
 // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-// const promise = new Promise(function (resolve, reject) {
-//   console.log("Before timeout.");
+const promise = new Promise(function (resolve, reject) {
+  console.log("Before timeout.");
 
-//   setTimeout(() => {
-//     function randomIntFromInterval(min, max) {
-//       return Math.floor(Math.random() * (max - min + 1) + min);
-//     }
+  setTimeout(() => {
+    function randomIntFromInterval(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
 
-//     const randomNumber = randomIntFromInterval(1, 10);
+    const randomNumber = randomIntFromInterval(1, 10);
 
-//     if (randomNumber > 5) {
-//       console.log("Resolved.");
-//       resolve("resolved data");
-//     } else {
-//       console.log("Rejected.");
-//       reject("rejected data");
-//     }
-//   }, 3000);
+    if (randomNumber > 5) {
+      console.log("Resolved.");
+      resolve("resolved data");
+    } else {
+      console.log("Rejected.");
+      reject("rejected data");
+    }
+  }, 3000);
 
-//   console.log("After timeout.");
-// });
+  console.log("After timeout.");
+});
 
-// console.log({ promise });
+console.log({ promise });
 
-// promise
-//   .then(() => {
-//     console.log({ promise });
-//   })
-//   .catch(() => {
-//     console.log({ promise });
-//   });
+promise
+  .then(() => {
+    console.log({ promise });
+  })
+  .then(() => {
+    console.log("Hello");
+  })
+  .then(() => {
+    console.log("World");
+  })
+  .catch(() => {
+    console.log({ promise });
+  });
 
 // Definition :- Promise is a type of object which fills after sometime in future when promise state become fulfilled.
 // Promise object is immutable
@@ -332,30 +338,38 @@
 // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 // Event capturing, event bubbling and event delegation
 
-const helloworldContainer = document.querySelector("#hello-world");
-const helloContainer = document.querySelector("#hello");
-const worldContainer = document.querySelector("#world");
+// const helloworldContainer = document.querySelector("#hello-world");
+// const helloContainer = document.querySelector("#hello");
+// const worldContainer = document.querySelector("#world");
 
-helloworldContainer.addEventListener(
-  "click",
-  function (event) {
-    console.log("hello-world");
-    console.log("target", event.target);
-    console.log("currentTarget", event.currentTarget);
-  },
-  {
-    capture: false,
-  }
-);
+// helloworldContainer.addEventListener(
+//   "click",
+//   function (event) {
+//     console.log("hello-world");
+//     console.log("target", event.target);
+//     console.log("currentTarget", event.currentTarget);
+//   },
+//   {
+//     capture: false,
+//   }
+// );
 
-helloContainer.addEventListener("click", function (event) {
-  console.log("hello");
-  console.log("target", event.target);
-  console.log("currentTarget", event.currentTarget);
-});
+// helloContainer.addEventListener("click", function (event) {
+//   console.log("hello");
+//   console.log("target", event.target);
+//   console.log("currentTarget", event.currentTarget);
+// });
 
-worldContainer.addEventListener("click", function (event) {
-  console.log("world");
-  console.log("target", event.target);
-  console.log("currentTarget", event.currentTarget);
-});
+// worldContainer.addEventListener("click", function (event) {
+//   console.log("world");
+//   console.log("target", event.target);
+//   console.log("currentTarget", event.currentTarget);
+// });
+
+async function getData() {
+  const response = Promise.resolve({
+    data: ["john_doe_123"],
+  });
+
+  return response;
+}
