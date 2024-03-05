@@ -13,6 +13,7 @@ todoForm.addEventListener("submit", (event) => {
   }
 });
 
+// Event delegation
 todoList.addEventListener("click", (event) => {
   const target = event.target;
   const tagName = target.tagName;

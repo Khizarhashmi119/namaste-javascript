@@ -265,45 +265,45 @@
 
 // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-const promise = new Promise(function (resolve, reject) {
-  console.log("Before timeout.");
+// const promise = new Promise(function (resolve, reject) {
+//   console.log("Before timeout.");
 
-  setTimeout(() => {
-    function randomIntFromInterval(min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    }
+//   setTimeout(() => {
+//     function randomIntFromInterval(min, max) {
+//       return Math.floor(Math.random() * (max - min + 1) + min);
+//     }
 
-    const randomNumber = randomIntFromInterval(1, 10);
+//     const randomNumber = randomIntFromInterval(1, 10);
 
-    if (randomNumber > 5) {
-      console.log("Resolved.");
-      resolve("resolved data");
-    } else {
-      console.log("Rejected.");
-      reject("rejected data");
-    }
-  }, 3000);
+//     if (randomNumber > 5) {
+//       console.log("Resolved.");
+//       resolve("resolved data");
+//     } else {
+//       console.log("Rejected.");
+//       reject("rejected data");
+//     }
+//   }, 3000);
 
-  console.log("After timeout.");
-});
+//   console.log("After timeout.");
+// });
 
-console.log({ promise });
+// console.log({ promise });
 
-promise
-  .then(() => {
-    console.log({ promise });
-  })
-  .then(() => {
-    console.log("Hello");
-  })
-  .then(() => {
-    console.log("World");
-  })
-  .catch(() => {
-    console.log({ promise });
-  });
+// promise
+//   .then(() => {
+//     console.log({ promise });
+//   })
+//   .then(() => {
+//     console.log("Hello");
+//   })
+//   .then(() => {
+//     console.log("World");
+//   })
+//   .catch(() => {
+//     console.log({ promise });
+//   });
 
-// Definition :- Promise is a type of object which fills after sometime in future when promise state become fulfilled.
+// Definition :- Promise is a type of object which fills with data after sometime in future when promise state become fulfilled.
 // Promise object is immutable
 // Promise states 👇
 // pending, fulfilled, rejected
@@ -338,9 +338,16 @@ promise
 // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 // Event capturing, event bubbling and event delegation
 
-// const helloworldContainer = document.querySelector("#hello-world");
-// const helloContainer = document.querySelector("#hello");
-// const worldContainer = document.querySelector("#world");
+const helloworldContainer = document.querySelector("#hello-world");
+const helloContainer = document.querySelector("#hello");
+const worldContainer = document.querySelector("#world");
+
+// HTML content 👇
+console.log(helloworldContainer.innerHTML);
+// Text content on browser screen and this content is also affect by CSS 👇
+console.log(helloworldContainer.innerText);
+// Text content in HTML file with every white space and new line 👇
+console.log(helloworldContainer.textContent);
 
 // helloworldContainer.addEventListener(
 //   "click",
