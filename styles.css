@@ -1,18 +1,58 @@
-#hello-world {
+.hello-world {
   border: 1px solid #000;
   display: flex;
   gap: 1rem;
   padding: 1rem;
 }
 
-#hello {
+.hello {
   border: 1px solid #000;
   padding: 1rem;
   width: 300px;
 }
 
-#world {
+.world {
   border: 1px solid #000;
   padding: 1rem;
   width: 300px;
+}
+
+.bye-bye {
+  background-color: #cfbd9f;
+  color: #1d4e3f;
+  /* display: flex; */
+  margin: 1rem;
+  /* width: fit-content; */
+
+  &::before {
+    background-color: #ff6347;
+    content: "before";
+    /* display: block; */
+    /* height: 100px; */
+    /* width: 100px; */
+  }
+
+  &::after {
+    background-color: #ff6347;
+    content: "after";
+    /* display: block; */
+    /* height: 100px; */
+    /* width: 100px; */
+  }
+
+  /* .before { */
+  /* background-color: #ff6347; */
+  /* content: "before"; */
+  /* display: block; */
+  /* height: 100px; */
+  /* width: 100px; */
+  /* } */
+
+  /* .after { */
+  /* background-color: #ff6347; */
+  /* content: "after"; */
+  /* display: block; */
+  /* height: 100px; */
+  /* width: 100px; */
+  /* } */
 }
