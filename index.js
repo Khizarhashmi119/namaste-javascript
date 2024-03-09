@@ -338,16 +338,16 @@
 // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 // Event capturing, event bubbling and event delegation
 
-const helloworldContainer = document.querySelector("#hello-world");
-const helloContainer = document.querySelector("#hello");
-const worldContainer = document.querySelector("#world");
+// const helloworldContainer = document.querySelector(".hello-world");
+// const helloContainer = document.querySelector(".hello");
+// const worldContainer = document.querySelector(".world");
 
 // HTML content 👇
-console.log(helloworldContainer.innerHTML);
+// console.log(helloworldContainer.innerHTML);
 // Text content on browser screen and this content is also affect by CSS 👇
-console.log(helloworldContainer.innerText);
+// console.log(helloworldContainer.innerText);
 // Text content in HTML file with every white space and new line 👇
-console.log(helloworldContainer.textContent);
+// console.log(helloworldContainer.textContent);
 
 // helloworldContainer.addEventListener(
 //   "click",
@@ -373,10 +373,12 @@ console.log(helloworldContainer.textContent);
 //   console.log("currentTarget", event.currentTarget);
 // });
 
-async function getData() {
-  const response = Promise.resolve({
-    data: ["john_doe_123"],
-  });
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 
-  return response;
-}
+// async function getData() {
+//   const response = Promise.resolve({
+//     data: ["john_doe_123"],
+//   });
+
+//   return response;
+// }
