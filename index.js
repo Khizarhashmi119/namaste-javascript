@@ -382,3 +382,87 @@
 
 //   return response;
 // }
+
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+// Error
+
+// console.log(x)
+// x = 10;
+
+// function hi() {
+//   console.log(x);
+//   x = 10;
+// }
+
+// hi();
+
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
+// console.log(a);
+// console.log(b);
+// var a = (b = 10);
+
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+// call, apply and bind
+
+// var name = "John";
+
+// var person = {
+//   name: "Jane",
+// };
+
+// function sayHi(message) {
+//   console.log("Hi", this.name, message);
+// }
+
+// sayHi.apply(person, ["This is message."]);
+// sayHi.call(person, "This is message.");
+
+// // const anotherSayHi = sayHi.bind(person, "This is message");
+// const anotherSayHi = sayHi.bind(person);
+// anotherSayHi("This is another message");
+
+// console.log(sayHi.length);
+// console.log(sayHi.name);
+
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+// Some Object methods
+
+const user = {
+  name: "John Doe",
+  age: 26,
+  gender: "male",
+  address: {
+    house: 537,
+    street: "6A",
+    city: "Delhi",
+  },
+};
+
+const targetUser = {};
+
+Object.assign(targetUser, user);
+
+user.name = "Jane Doe";
+// user.address.street = "7";
+user.address = "537, 6A, Delhi";
+
+console.log({ user, targetUser });
+
+// Object.defineProperty(user, "name", {
+//   writable: false,
+// });
+
+Object.defineProperties(user, {
+  name: {
+    writable: false,
+  },
+});
+
+user.name = "Hello World";
+
+console.log({ user });
+
+console.log(Object.getOwnPropertyDescriptors(user));
+console.log(Object.getOwnPropertyDescriptor(user, "name"));
+console.log(Object.getOwnPropertyNames(user));  //  This also includes Symbol key
