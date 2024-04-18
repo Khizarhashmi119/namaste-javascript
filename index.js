@@ -465,4 +465,69 @@ console.log({ user });
 
 console.log(Object.getOwnPropertyDescriptors(user));
 console.log(Object.getOwnPropertyDescriptor(user, "name"));
-console.log(Object.getOwnPropertyNames(user));  //  This also includes Symbol key
+console.log(Object.getOwnPropertyNames(user)); //  This also includes Symbol key
+
+function debounce(func, time) {
+  let timeout = null;
+
+  return (...args) => {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(() => {
+      func(...args);
+    }, time);
+  };
+}
+
+function greet(message = "this is default message.") {
+  console.log("Hello", message);
+}
+
+const debouncedGreet = debounce(greet, 5000);
+// debouncedGreet();
+// debouncedGreet();
+
+function deepCopy(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function rateLimiter(func, time) {
+  let isCalled = false;
+
+  return (...args) => {
+    if (!isCalled) {
+      func(...args);
+      isCalled = true;
+    }
+
+    setInterval(() => {
+      isCalled = false;
+    }, time);
+  };
+}
+
+const rateLimitedGreet = rateLimiter(greet, 5000);
+// rateLimitedGreet();
+// rateLimitedGreet();
+
+Array.prototype.myMap = function (callback) {
+  for (let index = 0; index < this.length; index++) {
+    callback(this[index], index, this);
+  }
+};
+
+[1, 2, 3].myMap((value, index, array) => {
+  console.log({ value, index, array });
+});
+
+Function.prototype.myBind = function (obj, ...args1) {
+  const func = this;
+
+  return function (...args2) {
+    func.call(obj, ...(args1.length ? args1 : args2));
+  };
+};
+
+greet.myBind({}, "bye")("hi");
