@@ -10,7 +10,13 @@
   <body>
     <h1 class="title">Assalamualaikum javascript</h1>
     <form id="todo-form">
-      <input id="todo-input" type="text" name="todo" required />
+      <input
+        id="todo-input"
+        type="text"
+        name="todo"
+        oninput="debouncedHandleChangeInput(this.value)"
+        required
+      />
       <button id="add-todo-btn" type="submit">Add</button>
     </form>
     <ul id="todo-list"></ul>
@@ -26,7 +32,13 @@
     </div>
 
     <label for="yellow">
-      <input id="yellow" type="radio" name="color" value="yellow" data-color="yellow" />
+      <input
+        id="yellow"
+        type="radio"
+        name="color"
+        value="yellow"
+        data-color="yellow"
+      />
       Yellow
     </label>
 

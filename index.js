@@ -317,9 +317,9 @@
 //     console.log(fetchPromise);
 //     console.log({ value });
 
-//     // return res.arrayBuffer();
-//     // return res.blob();
-//     // return res.body;
+//     // return value.arrayBuffer();
+//     // return value.blob();
+//     // return value.body;
 
 //     if (!value.ok) {
 //       return Promise.reject(value.status);
@@ -428,44 +428,47 @@
 // ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
 // Some Object methods
 
-const user = {
-  name: "John Doe",
-  age: 26,
-  gender: "male",
-  address: {
-    house: 537,
-    street: "6A",
-    city: "Delhi",
-  },
-};
+// const user = {
+//   name: "John Doe",
+//   age: 26,
+//   gender: "male",
+//   address: {
+//     house: 537,
+//     street: "6A",
+//     city: "Delhi",
+//   },
+// };
 
-const targetUser = {};
+// const targetUser = {};
 
-Object.assign(targetUser, user);
+// Object.assign(targetUser, user);
 
-user.name = "Jane Doe";
+// user.name = "Jane Doe";
 // user.address.street = "7";
-user.address = "537, 6A, Delhi";
+// user.address = "537, 6A, Delhi";
 
-console.log({ user, targetUser });
+// console.log({ user, targetUser });
 
 // Object.defineProperty(user, "name", {
 //   writable: false,
 // });
 
-Object.defineProperties(user, {
-  name: {
-    writable: false,
-  },
-});
+// Object.defineProperties(user, {
+//   name: {
+//     writable: false,
+//   },
+// });
 
-user.name = "Hello World";
+// user.name = "Hello World";
 
-console.log({ user });
+// console.log({ user });
 
-console.log(Object.getOwnPropertyDescriptors(user));
-console.log(Object.getOwnPropertyDescriptor(user, "name"));
-console.log(Object.getOwnPropertyNames(user)); //  This also includes Symbol key
+// console.log(Object.getOwnPropertyDescriptors(user));
+// console.log(Object.getOwnPropertyDescriptor(user, "name"));
+// console.log(Object.getOwnPropertyNames(user)); //  This also includes Symbol key
+
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+// Debounce function
 
 function debounce(func, time) {
   let timeout = null;
@@ -481,17 +484,16 @@ function debounce(func, time) {
   };
 }
 
-function greet(message = "this is default message.") {
-  console.log("Hello", message);
-}
+// function greet(message = "this is default message.") {
+//   console.log("Hello", message);
+// }
 
-const debouncedGreet = debounce(greet, 5000);
+// const debouncedGreet = debounce(greet, 5000);
 // debouncedGreet();
 // debouncedGreet();
 
-function deepCopy(value) {
-  return JSON.parse(JSON.stringify(value));
-}
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+// Rate Limiter
 
 function rateLimiter(func, time) {
   let isCalled = false;
@@ -500,34 +502,51 @@ function rateLimiter(func, time) {
     if (!isCalled) {
       func(...args);
       isCalled = true;
-    }
 
-    setInterval(() => {
-      isCalled = false;
-    }, time);
+      setTimeout(() => {
+        isCalled = false;
+      }, time);
+    }
   };
 }
 
-const rateLimitedGreet = rateLimiter(greet, 5000);
+// const rateLimitedGreet = rateLimiter(greet, 5000);
 // rateLimitedGreet();
 // rateLimitedGreet();
 
-Array.prototype.myMap = function (callback) {
-  for (let index = 0; index < this.length; index++) {
-    callback(this[index], index, this);
-  }
+const handleChangeInput = (value) => {
+  console.log({ value });
 };
 
-[1, 2, 3].myMap((value, index, array) => {
-  console.log({ value, index, array });
-});
+const debouncedHandleChangeInput = debounce(handleChangeInput, 1000);
+const rateLimitedHandleChangeInput = rateLimiter(handleChangeInput, 5000);
 
-Function.prototype.myBind = function (obj, ...args1) {
-  const func = this;
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+// Polyfill of map and bind
 
-  return function (...args2) {
-    func.call(obj, ...(args1.length ? args1 : args2));
-  };
-};
+// Array.prototype.myMap = function (callback) {
+//   for (let index = 0; index < this.length; index++) {
+//     callback(this[index], index, this);
+//   }
+// };
 
-greet.myBind({}, "bye")("hi");
+// [1, 2, 3].myMap((value, index, array) => {
+//   console.log({ value, index, array });
+// });
+
+// Function.prototype.myBind = function (obj, ...args1) {
+//   const func = this;
+
+//   return function (...args2) {
+//     func.call(obj, ...(args1.length ? args1 : args2));
+//   };
+// };
+
+// greet.myBind({}, "bye")("hi");
+
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+// Deep copy
+
+// function deepCopy(value) {
+//   return JSON.parse(JSON.stringify(value));
+// }
