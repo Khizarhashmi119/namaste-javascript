@@ -550,3 +550,47 @@ const rateLimitedHandleChangeInput = rateLimiter(handleChangeInput, 5000);
 // function deepCopy(value) {
 //   return JSON.parse(JSON.stringify(value));
 // }
+
+// ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+// Call by value and call by reference
+let myName = "Mohd. Khizar Hashmi";
+let myAge = new Number(26);
+
+let person = {
+  name: "Jane Doe",
+  age: 26,
+};
+
+function func1(name, age, person) {
+  name = "John Doe";
+  age = 27;
+  person.name = "Hello World";
+  console.log({ name, age, person });
+
+  return [name, age, person];
+}
+
+console.log(func1(myName, myAge, person));
+console.log({ myName, myAge, person });
+
+console.log({
+  number1: 10,
+  number2: Number(10),
+  number3: new Number(10),
+});
+
+console.log({
+  string1: "10",
+  string2: String("10"),
+  string3: new String(10),
+});
+
+console.log({
+  "typeof number1": typeof 10,
+  "typeof number2": typeof Number(10),
+  "typeof number3": typeof new Number(10),
+});
+
+class Person {}
+
+console.log(typeof Person);
