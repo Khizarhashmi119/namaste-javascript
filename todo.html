@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <form id="todo-form">
+      <input
+        id="todo-input"
+        type="text"
+        name="todo"
+        oninput="debouncedHandleChangeInput(this.value)"
+        required
+      />
+      <button id="add-todo-btn" type="submit">Add</button>
+    </form>
+    <ul id="todo-list"></ul>
+
+    <script src="./todo.js"></script>
+  </body>
+</html>
