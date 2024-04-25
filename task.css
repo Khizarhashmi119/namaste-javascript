@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+
+  .circle {
+    border: 1px solid #000000;
+    border-radius: 50%;
+    position: absolute;
+  }
+}
